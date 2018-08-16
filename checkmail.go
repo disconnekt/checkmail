@@ -53,11 +53,11 @@ func ValidateHost(email string) error {
 		return NewSmtpError(err)
 	}
 	defer client.Close()
-	err = client.Hello("checkmail.me")
+	err = client.Hello(host)
 	if err != nil {
 		return NewSmtpError(err)
 	}
-	err = client.Mail("lansome-cowboy@gmail.com")
+	err = client.Mail(email)
 	if err != nil {
 		return NewSmtpError(err)
 	}
